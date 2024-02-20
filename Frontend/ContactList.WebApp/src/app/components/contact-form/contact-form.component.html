@@ -1,14 +1,23 @@
 <form>
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" [(ngModel)]="contact.name">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" id="name" name="name" [(ngModel)]="contact.name" class="form-control">
+    <div id="name" class="form-text">Name is required and characters must be between 1-100.</div>
+  </div>
 
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" [(ngModel)]="contact.email">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="text" id="email" name="email" [(ngModel)]="contact.email" class="form-control">
+    <div id="name" class="form-text">Email is required and must be a valid email.</div>
+  </div>
 
-    <label for="phone">Phone:</label>
-    <input type="text" id="phone" name="phone" [(ngModel)]="contact.phone">
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="text" id="phone" name="phone" [(ngModel)]="contact.phone" class="form-control">
+    <div id="name" class="form-text">Phone is required and characters must be between 1-15.</div>
+  </div>
 
-    <button (click)="submitForm()">Submit</button>
+  <div class="mb-3 float-end">
+    <button class="btn btn-primary" (click)="submitForm()">Submit</button>
   </div>
 </form>

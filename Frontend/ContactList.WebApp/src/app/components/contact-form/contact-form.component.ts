@@ -24,6 +24,7 @@ export class ContactFormComponent {
     );
   }
 
+
   private showSuccessAlert() {
     Swal.fire({
       title: 'Success',
@@ -32,12 +33,12 @@ export class ContactFormComponent {
     });
   }
 
-  private showErrorAlert(error: any) {
+  private showErrorAlert(result: any) {
     Swal.fire({
       title: 'Error',
-      text: 'Failed to send contact. Please try again.',
+      text: result.error[0].errorMessage,
       icon: 'error',
     });
-    console.error('Error sending contact:', error);
+    console.error('Error sending contact:', result);
   }
 }

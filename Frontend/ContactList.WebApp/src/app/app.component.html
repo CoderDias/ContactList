@@ -22,9 +22,11 @@
         <td>{{ contact.email }}</td>
         <td>{{ contact.phone }}</td>
         <td>
-          <a href="">Edit</a>&nbsp;
-          <a href="">Details</a>&nbsp;
-          <a href="">Delete</a>&nbsp;
+          <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary">Edit</button>
+            <button type="button" class="btn btn-outline-primary">Details</button>
+            <button class="btn btn-outline-primary" (click)="deleteContact(contact.id)">Delete</button>
+          </div>
         </td>
       </tr>
     </tbody>
@@ -32,11 +34,11 @@
 </div>
 
 <!-- modal create -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalCreateContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add new contact</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
