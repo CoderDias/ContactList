@@ -32,7 +32,7 @@ export class ContactCreateModalComponent {
       },
       (error) => {
         console.error('Error creating contact:', error);
-        Swal.fire('Error', 'Failed to create contact.', 'error');
+        Swal.fire('Error', `Failed to create contact.<br>${error.error[0].errorMessage}`, 'error');
       }
     );
   }

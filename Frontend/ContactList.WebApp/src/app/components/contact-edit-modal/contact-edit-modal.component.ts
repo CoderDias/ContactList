@@ -34,7 +34,7 @@ export class ContactEditModalComponent implements OnInit {
       },
       (error) => {
         console.error('Error updating contact:', error);
-        Swal.fire('Error', 'Failed to save changes.', 'error');
+        Swal.fire('Error', `Failed to save changes.<br>${error.error[0].errorMessage}`, 'error');
       }
     );
   }
