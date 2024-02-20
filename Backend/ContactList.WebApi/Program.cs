@@ -1,3 +1,9 @@
+using ContactList.Domain.Services;
+using ContactList.Infraestructure.Database;
+using ContactList.Infraestructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System;
+
 namespace ContactList.WebApi
 {
     public class Program
@@ -7,12 +13,31 @@ namespace ContactList.WebApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
+            );
 
+            // Add scoped services
+            builder.Services.AddScoped<IContactRepository, ContactRepository>();
+
+            // Add services to the container.
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Configure CORS to be able to interact with frontend.
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("Origins", policy =>
+                {
+                    policy
+                    .WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
+
+            // Build WebApplication
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -22,13 +47,14 @@ namespace ContactList.WebApi
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+            // Use CORS
+            app.UseCors("Origins");
+
+            // Seed data
+            app.UseSeedDataMiddleware();
 
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
         }
     }
