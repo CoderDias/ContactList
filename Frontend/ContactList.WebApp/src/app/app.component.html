@@ -1,3 +1,12 @@
+<!-- Navigation-->
+<nav class="navbar navbar-light bg-light static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#!">ContactListWebApp</a>
+    <button type="button" class="btn btn-primary" (click)="createContact()">Add contact</button>
+  </div>
+</nav>
+
+<!-- Body -->
 <div class="container mt-3">
   <h1 id="tableLabel">Contacts</h1>
 
@@ -23,8 +32,8 @@
         <td>{{ contact.phone }}</td>
         <td>
           <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-primary">Edit</button>
-            <button type="button" class="btn btn-outline-primary">Details</button>
+            <button type="button" class="btn btn-outline-primary" (click)="editContact(contact.id)">Edit</button>
+            <button type="button" class="btn btn-outline-primary" (click)="detailsContact(contact.id)">Details</button>
             <button class="btn btn-outline-primary" (click)="deleteContact(contact.id)">Delete</button>
           </div>
         </td>
@@ -32,20 +41,3 @@
     </tbody>
   </table>
 </div>
-
-<!-- modal create -->
-<div class="modal fade" id="modalCreateContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add new contact</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <app-contact-form></app-contact-form>
-      </div>
-    </div>
-  </div>
-</div>
-
-

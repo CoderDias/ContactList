@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create Contact</h4>
+  <button type="button" class="btn-close" (click)="close()" aria-label="Close">
+  </button>
+</div>
+<div class="modal-body">
+
+  <label>Name:</label>
+  <input [(ngModel)]="contact.name" class="form-control" />
+
+  <label>Email:</label>
+  <input [(ngModel)]="contact.email" class="form-control" />
+
+  <label>Phone:</label>
+  <input [(ngModel)]="contact.phone" class="form-control" />
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="saveChanges()">Save Changes</button>
+  <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+</div>
