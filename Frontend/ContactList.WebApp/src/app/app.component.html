@@ -12,7 +12,7 @@
 
   <p>This component demonstrates fetching data from the server.</p>
 
-  <p *ngIf="!contacts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+  <p *ngIf="!contacts"><em>Loading... Please refresh once the ASP.NET backend has started.</em></p>
 
   <table class="table table-striped table-hover" *ngIf="contacts">
     <thead>
@@ -31,10 +31,10 @@
         <td>{{ contact.email }}</td>
         <td>{{ contact.phone }}</td>
         <td>
-          <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-primary" (click)="editContact(contact.id)">Edit</button>
-            <button type="button" class="btn btn-outline-primary" (click)="detailsContact(contact.id)">Details</button>
-            <button class="btn btn-outline-primary" (click)="deleteContact(contact.id)">Delete</button>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" (click)="editContact(contact.id)">Edit</button>
+            <button type="button" class="btn btn-primary" (click)="detailsContact(contact.id)">Details</button>
+            <button type="button" class="btn btn-primary" (click)="deleteContact(contact.id)">Delete</button>
           </div>
         </td>
       </tr>

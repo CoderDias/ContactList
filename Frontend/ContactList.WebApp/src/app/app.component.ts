@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
       cancelButtonText: 'No, cancel!',
-      reverseButtons: true
+      reverseButtons: false
     }).then((result) => {
       if (result.isConfirmed) {
         const url = `http://localhost:5000/contact/${id}`;
@@ -60,8 +60,6 @@ export class AppComponent implements OnInit {
             console.error(`Error deleting contact with id ${id}:`, error);
           }
         );
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Cancelled', 'Your contact is safe :)', 'info');
       }
     });
   }
