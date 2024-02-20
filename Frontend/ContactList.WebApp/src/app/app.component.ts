@@ -13,10 +13,10 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.getForecasts();
+    this.getContacts();
   }
 
-  getForecasts() {
+  getContacts() {
     this.http.get<Contact[]>('http://localhost:5000/contact').subscribe(
       (result) => {
         this.contacts = result;
